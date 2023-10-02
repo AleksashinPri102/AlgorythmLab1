@@ -10,6 +10,7 @@ namespace AlgorithmsAnalysis
 {
     class Program
     {
+        //Создаем список алгоритмов для сортировки.
         static void Main(string[] args)
         {
             List<IResercheable> algorythmList = new List<IResercheable>()
@@ -36,7 +37,7 @@ namespace AlgorithmsAnalysis
 
     class Tools
     {
-        //Метод, создающий массив заданного размера со случайными значениями
+        //Создающем массив заданного размера со случайными значениями.
         public static int[] GenerateArray(int size)
         {
             int[] array = new int[size];
@@ -46,7 +47,7 @@ namespace AlgorithmsAnalysis
             return array;
         }
 
-        //Метод, возвращающий время, которое он потратил на алгоритм
+        //Измеряем время выполнения алгоритма.
         public static long MeasureTime(int[] array, IResercheable algorithm)
         {
             Random random = new Random();
@@ -64,6 +65,7 @@ namespace AlgorithmsAnalysis
             List<(int, long)> results = new List<(int, long)>();
             results.Add((-1, sorted ? 1 : 0));
 
+            //Тестируем алгоритм 5 раз
             foreach (int dimension in algorithm.TestArray)
             {
                 for (int i = 0; i < 5; i++)
@@ -75,6 +77,7 @@ namespace AlgorithmsAnalysis
             }
 
             Console.WriteLine("Выполнено!");
+            //Усредняем время на итерации алгоритма.
             List<(int, long)> res = new List<(int, long)>();
             for (int i = 1; i <= algorithm.TestArray.Length; i++)
             {
@@ -101,18 +104,16 @@ namespace AlgorithmsAnalysis
         }
     }
 
-
+    //Абстрактный класс, для алгоритмов, которые будут тестироваться.
     public abstract class IResercheable
     {
-        //Метод, описывающий алгоритм
-        //array - набор данных, который будет тестироваться
-        //value - значение, которое ищем в массиве
+        //Принимаем размер и имя в конструктор.
         protected IResercheable(int size, string name)
         {
             TestArray = GenerateArray(size);
             Name = name;
         }
-
+        //Создаем массив по заданным размерам.
         private int[] GenerateArray(int size)
         {
             int[] dimensions = new int[size];
@@ -123,10 +124,11 @@ namespace AlgorithmsAnalysis
 
             return dimensions;
         }
+        //Абстрактный метод, который реализуется в классах наследках.
         public abstract void Run(int[] array, int value = 0);
 
         public int[] TestArray { get; }
-        //Имя, которое отображается в экспортном файле
+        //Имя, которое отображается в экспортном файле.
         public string Name { get; }
     }
 }
