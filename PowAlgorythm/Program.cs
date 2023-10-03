@@ -7,6 +7,7 @@ namespace PowAlgorythm
     {
         public static void Main(string[] args)
         {
+            //Создаем список с алгоритмами
             List<PowTest> results = new List<PowTest>()
             {
                 new Pow
@@ -24,6 +25,7 @@ namespace PowAlgorythm
                 {
                 }
             };
+            //Выводим результат возведения в степень в консоль
             foreach (var pow in results)
             {
                 Console.WriteLine($"Pow Result:{pow.Run()}");
