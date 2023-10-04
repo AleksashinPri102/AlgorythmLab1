@@ -11,7 +11,8 @@ public class QuickPow : PowTest
             int count = 0;
             int number = Number;
             int degree = i;
-            //Определяем значение степени чет, нечет. Если чет то res = 1, иначе rec = Number.
+            //Определяем значение степени чет, нечет.
+            //Если чет то res = 1, иначе rec = Number.
             res = degree % 2 == 1 ? Number : 1;
 
             do
@@ -36,7 +37,8 @@ public class QuickPow : PowTest
 
         return res;
     }
-    //Возвращаем строку "QuickPow", указывая на то, что это реализация алгоритма быстрого возведения в степень.
+    //Возвращаем строку "QuickPow", указывая на то,
+    //что это реализация алгоритма быстрого возведения в степень.
     public override string GetName()
     {
         return "QuickPow";

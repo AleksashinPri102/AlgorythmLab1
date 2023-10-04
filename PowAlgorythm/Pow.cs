@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace PowAlgorythm;
+﻿namespace PowAlgorythm;
 
 public class Pow : PowTest
 {
@@ -25,7 +23,8 @@ public class Pow : PowTest
 
         return res;
     }
-    //Возвращаем строку "Pow", указывая на то, что это реализация алгоритма возведения в степень с использованием обычного умножения (без оптимизаций).
+    //Возвращаем строку "Pow", указывая на то, что это реализация алгоритма возведения
+    ///в степень с использованием обычного умножения (без оптимизаций).
     public override string GetName()
     {
         return "Pow";

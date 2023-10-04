@@ -5,6 +5,7 @@
         public override void Run(int[] array, int value)
         {
             int sum = 0;
+            //Складываем все элементы
             foreach (int elem in array)
             {
                 sum += elem;

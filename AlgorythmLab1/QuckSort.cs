@@ -4,13 +4,17 @@
     {
         public static int[] Calculate(int[] vector)
         {
+            // проверяет, если длина массива меньше или равна 1,
+            // то возвращает исходный массив без изменений.
             if (vector.Length <= 1) return vector;
+            //генерирует случайное число из массив
             var randomNum = vector[new Random().Next(0, vector.Length)];
 
             int bigCount = 0;
             int lowCount = 0;
             int equalCount = 0;
 
+            //выполняет цикл для каждого элемента в массиве
             foreach (var element in vector)
             {
                 if (element > randomNum)
@@ -21,6 +25,7 @@
                     equalCount++;
             }
 
+            //создает новые массивы на основе вычисленных счетчиков
             int[] bigElements = new int[bigCount];
             int[] lowElements = new int[lowCount];
             int[] equalElements = new int[equalCount];
@@ -28,7 +33,7 @@
             int lowindex = 0;
             int bigindex = 0;
             int equalindex = 0;
-
+            // Cортировка каждого эллемента массива
             for (int i = 0; i < vector.Length; i++)
             {
                 var element = vector[i];
@@ -39,10 +44,11 @@
                 else
                     equalElements[equalindex++] = element;
             }
-
+            // вызов метода для отсортированных массивов
             Calculate(lowElements);
             Calculate(bigElements);
 
+            //перезаписывает массив отсортированными елементами
             for (int i = 0; i < vector.Length; i++)
             {
                 if (i < lowElements.Length)
@@ -55,6 +61,7 @@
             return vector;
         }
 
+        //Конструктор класса, который принимает имя и размер массива.
         public QuickSort(int size, string name) : base(size, name)
         {
         }
