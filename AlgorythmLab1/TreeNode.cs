@@ -7,6 +7,7 @@
         TreeNode? left;
         TreeNode? right;
 
+        // Рекурсивный алгоритм вставки числа в двоичное дерево
         public void Insert(int num)
         {
             if (num < number)
@@ -25,6 +26,7 @@
             }
         }
 
+        // Рекурсивный алгоритм обхода дерева
         public List<int> Parse(List<int> array)
         {
             if (left != null)

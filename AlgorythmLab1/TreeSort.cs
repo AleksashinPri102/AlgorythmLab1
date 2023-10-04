@@ -1,26 +1,19 @@
-﻿using AlgorithmsAnalysis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AlgorithmsAnalysis;
 
-namespace AlgorithmsAnalysis
+class TreeSort : IResercheable
 {
-    class TreeSort : IResercheable
+    public override void Run(int[] array, int value)
     {
-        public override void Run(int[] array, int value)
-        {
-            var enumerator = array.GetEnumerator();
-            enumerator.MoveNext();
-            var root = new TreeNode((int)enumerator.Current);
-            while (enumerator.MoveNext())
-                root.Insert((int)enumerator.Current);
-            Array.Copy(root.Parse(new List<int>()).ToArray(), array, array.Length);
-        }
-        public TreeSort(int size, string name) : base(size, name)
-        {
-        }
+        var enumerator = array.GetEnumerator();
+        enumerator.MoveNext();
+        var root = new TreeNode((int)enumerator.Current);
+        while (enumerator.MoveNext())
+            root.Insert((int)enumerator.Current);
+        Array.Copy(root.Parse(new List<int>()).ToArray(), array, array.Length);
     }
-
+    public TreeSort(int size, string name) : base(size, name)
+    {
+    }
 }
+
+

@@ -9,9 +9,7 @@ class MyClass
         Random rand = new Random();
 
         int[] arr = new int[1000000];
-        for (int i = 0;
-             i < arr.Length;
-             i++)
+        for (int i = 0; i < arr.Length; i++)
         {
             arr[i] = rand.Next(1, 100);
         }
